@@ -1,0 +1,36 @@
+
+<div class="header-container">
+    
+    <button class="nav-button" aria-controls="nav" [attr.aria-expanded]="(isNavVisible() | async) ? 'true' : 'false'"  aria-label="Menú" (click)="toggleNav()">
+      <div></div>
+    <div></div>
+    </button>
+
+    <div id="title">
+        <h1>LA CERVECERA</h1>
+    </div>
+</div>
+
+<nav id="nav" [attr.data-visible]="(isNavVisible() | async) ? 'true' : 'false'">
+
+    <div *ngIf="!subNavVisible" id="nav-background">
+
+  <ul>
+
+  <li><a [routerLink] = "['']" (click)="toggleNav()" >Inicio</a></li>
+  <li><a (click)="toggleSubNav()">Categorías</a></li>
+  <li><a [routerLink] = "['contact']" (click)="toggleNav()">Contáctanos</a></li>
+  <li><a [routerLink] = "['about_us']" (click)="toggleNav()">Nosotros</a></li>
+  <li><a [routerLink] = "['faq']" (click)="toggleNav()">FAQ</a></li>
+
+  </ul>
+    </div>
+
+    <div *ngIf="subNavVisible" id="sub-nav-background">
+      <li><a [routerLink] = "['contact']" (click)="toggleNav(); toggleSubNav()">Licores</a></li>
+      <li><a [routerLink] = "['about_us']" (click)="toggleNav(); toggleSubNav()">Cervezas</a></li>
+      <li><a [routerLink] = "['faq']" (click)="toggleNav(); toggleSubNav()">Otros</a></li>
+      </div>
+</nav>
+
+

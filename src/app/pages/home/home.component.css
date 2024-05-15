@@ -1,0 +1,6 @@
+.contenedor{
+    background-color: rgb(193, 210, 205);
+    display: flex;
+    filter: blur(5px);
+}
+
